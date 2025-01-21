@@ -1,0 +1,26 @@
+{
+  "name": "comment",
+  "github": {
+    "silent": true
+  },
+  "builds": [
+    {
+      "src": "index.cjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(favicon\\.ico|robots\\.txt)",
+      "destination": "public/$1"
+    },
+    {
+      "source": "/((?!favicon\\.ico|robots\\.txt).*)",
+      "destination": "index.cjs"
+    }
+  ]
+}
